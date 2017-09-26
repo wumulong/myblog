@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.urls import reverse
 # Create your models here.
 
 
@@ -26,6 +27,11 @@ class Post(models.Model):
 	category = models.ForeignKey(Category)
 	tags = models.ManyToManyField(Tag)
 	author = models.ForeignKey(User)
+	# expert = models.CharField(max_length=200)
 
 	def __str__(self):
 		return self.title
+
+
+	def get_absolute_url(self):
+		return reverse('blog:detail', kwargs={'pk':self.pk})
