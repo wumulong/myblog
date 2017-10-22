@@ -1,15 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>welcome to my website</title>
-</head>
-<body>
-    <h1>文章列表</h1>
+{% extends 'base.html' %}
+{% block main %}
     {% for post in post_list %}
         <h3>{{post.title}}</h3>
-        <p>{{post.expert}}</p>
-        <span><a href="{{ post.get_absolute_url }}">Read More</a></span>
+        <span><a href="{{post.get_absolute_url }}">Read more</a></span>
     {% endfor %}
-
-</body>
-</html>
+{% endblock main %}

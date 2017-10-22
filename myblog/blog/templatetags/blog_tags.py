@@ -1,5 +1,5 @@
 from django import template
-from ..models import Post, Category
+from ..models import Post, Category, Tag
 
 
 register = template.Library()
@@ -17,5 +17,10 @@ def archives():
 
 
 @register.simple_tag
-def get_categorys():
+def get_categories():
 	return Category.objects.all()
+
+
+@register.simple_tag
+def get_tags():
+	return Tag.objects.all()
